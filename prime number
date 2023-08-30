@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+bool isprime(int num){
+    
+    if(num<=1){
+        return false;
+    }
+    if(num<=3){
+        return true;
+    }
+    
+    if(num%2==0||num%3==0){
+        return false;
+    }
+    
+    int i=5;
+    while(i*i<=num){
+        if(num%i==0||num%(i+2)==0){
+            return false;
+            
+        }
+        i+=6;
+    }
+    return true;
+    
+}
+
+int main()
+{
+    int num;
+    cout<<"enter the number "<<endl;
+    cin>> num;
+    if(isprime(num)){
+        cout<<num<<"is a prime number";
+        
+    }
+    else{
+        cout<<num<<"is not a prime number";
+    }
+    return 0;
+    
+}
