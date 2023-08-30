@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+
+void sumarray(int arr[],int n,int targetsum){
+    int right=0;
+    int left =0;
+    int currentsum=0;
+    
+    while(right<n){
+        currentsum +=arr[right];
+        
+        while(currentsum>targetsum){
+            currentsum -=arr[left];
+            left++;
+        }
+        
+        if(currentsum==targetsum){
+            cout<<"sub arr fount at index "<<(left+1)<<" to "<<(right+1);
+           return;
+            
+        }
+        right++;
+    }
+    cout<<"no sub array fount: ";
+    
+}
+
+int main(){
+    
+    int n;
+    cout<<"enter the number of element: ";
+    cin>>n;
+    
+    int arr[n];
+    cout<<"enter the"<<n<<"element: ";
+    for(int i=0;i<n;++i){
+        cin>>arr[i];
+    }
+    
+    int targetsum;
+    cout<<"enter the targetsum:";
+    cin>>targetsum;
+    
+    sumarray( arr,n,targetsum);
+    
+    
+    
+    
+    return 0;
+    
+}
+
+
+
+
+
+
+
